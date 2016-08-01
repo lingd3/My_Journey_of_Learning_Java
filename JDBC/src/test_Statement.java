@@ -27,7 +27,7 @@ public class test_Statement {
 	//数据库用户和密码
 	static final String USER = "root";
 	
-	static final String PASS = "8815517"; 
+	static final String PASS = "111"; 
 	
 	public static void main(String[] args) {
 		Connection conn = null;
