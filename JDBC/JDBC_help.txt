@@ -1,0 +1,71 @@
+涉及到建立一个 JDBC 连接的编程主要有四个步骤：
+
+1.导入 JDBC 驱动： 只有拥有了驱动程序我们才可以注册驱动程序完成连接的其他步骤。
+static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+
+
+2.注册 JDBC 驱动程序：这一步会导致 JVM 加载所需的驱动程序实现到内存中，因此它可以实现 JDBC 请求。
+(注册驱动程序是将我们将要使用的数据库的驱动程序的类文件被加载到内存中，以便它可以被用作 JDBC 接口的实现过程.)
+(1)方法1——Class.forName()：
+注册一个驱动程序中最常用的方法是使用Java的Class.forName方法来动态加载驱动程序的类文件到内存中，它会自动将其注册。
+
+使用Class.forName()来注册 Mysql 驱动程序：
+try {
+   Class.forName("com.mysql.jdbc.Driver");
+}
+catch(ClassNotFoundException ex) {
+   System.out.println("Error: unable to load driver class!");
+   System.exit(1);
+}
+
+(2)方法2——DriverManager.registerDriver()：
+Driver driver = new com.mysql.jdbc.Driver();
+DriverManager.registerDriver(driver);
+
+
+3.数据库 URL 制定：创建具有正确格式的地址，指向到要连接的数据库。
+
+当加载的驱动程序，便可以使用 DriverManager.getConnection() 方法的连接到数据库了。
+DriverManager.getConnection() 三个重载方法:
+①getConnection(String url)
+②getConnection(String url, Properties prop)
+③getConnection(String url, String user, String password)
+
+Mysql的JDBC驱动程序名称：com.mysql.jdbc.Driver
+url：jdbc:mysql://hostname/ databaseName
+
+
+4.创建连接对象：最后，代码调用 DriverManager 对象的 getConnection() 方法来建立实际的数据库连接。
+
+下面三种形式DriverManager.getConnection()方法来创建一个连接对象。getConnection()最常用形式要求传递一个数据库URL，用户名 username和密码 password。
+①使用数据库URL的用户名和密码
+String URL = "jdbc:mysql://localhost/EXAMPLE";
+String USER = "username";
+String PASS = "password"
+Connection conn = DriverManager.getConnection(URL, USER, PASS);
+
+②只使用一个数据库URL
+然而，在这种情况下，数据库的URL包括用户名和密码。
+String URL = "jdbc:mysql://localhost/EXAMPLE?user=root&password=0909";
+Connection conn = DriverManager.getConnection(URL);
+
+③使用数据库的URL和一个Properties对象
+import java.util.*;
+
+String URL = "jdbc:mysql://localhost/EXAMPLE";
+Properties pro = new Properties( );
+
+//Properties对象，保存一组关键字-值对
+pro.put( "user", "root" );
+pro.put( "password", "0909" );
+
+Connection conn = DriverManager.getConnection(URL, pro);
+
+
+最后关闭JDBC连接
+conn.close();
+
+-----------------------------------------------------------------
+
+
+
