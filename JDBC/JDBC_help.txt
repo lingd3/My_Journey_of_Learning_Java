@@ -65,7 +65,3 @@ Connection conn = DriverManager.getConnection(URL, pro);
 最后关闭JDBC连接
 conn.close();
 
------------------------------------------------------------------
-
-
-
