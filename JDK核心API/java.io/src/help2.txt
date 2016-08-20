@@ -14,3 +14,10 @@ IO流（输入流、输出流）
   out.write(byte[] buf) 将buf字节数组都写入到流
   out.write(byte[] buf, int start, int size) 字节数组buf从start位置开始写size长度的字节到流
 5）FileInputStream --> 具体实现了在文件上读取数据
+6）FileOutputStream实现了向文件中写出byte数据的方法
+7）DataOutputStream/DataInputStream
+  对“流”功能的扩展，可以更加方便地读取int，long，字符等类型数据
+  DataOutputStream
+  	writeInt()/writeDouble()/writeUTF()
+8) BufferedInputStream&BufferedOutputStream
+  这两个流类为IO提供了带缓冲区的操作，一般打开文件进行写入或读取操作时，都会加上缓冲，这种流模式提高了IO的性能
