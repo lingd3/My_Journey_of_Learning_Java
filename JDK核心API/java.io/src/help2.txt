@@ -1,5 +1,6 @@
 IO流（输入流、输出流）
 字节流、字符流
+
 1.字节流
 1）InputStream、OutputStream
   InputStream抽象了应用程序读取数据的方式
@@ -26,7 +27,37 @@ IO流（输入流、输出流）
   DataOutputStream-->writeXxx()方法会方便一些，相当于一瓢一瓢地把水“转移”过去
   BufferedOutputStream-->方法更方便，相当于一瓢一瓢先放入桶中，再从桶中倒入到另一个缸中，性能提高
   
-  
+ 2.字符流
+ 1)编码问题
+ 2)认识文本和文本文件
+ java的文本(char)是16位无符号整数，是字符的unicode编码(双字节编码)
+ 文件是byte byte byte...的数据序列
+ 文本文件是文本(char)序列按照某种编码方案(utf-8,utf-16be,gbk)序列化为byte的存储结果
+ 3)字符流(Reader Writer) ---> 操作的是文本文件
+ 字符的处理，一次处理一个字符
+ 字符的底层仍然是基本的字节序列
+ 字符流的基本实现
+   InputStreamReader完成byte流解析为char流，按照编码解析
+   OutputStreamWriter提供char流到byte流，按照编码处理
+   FileReader/FileWriter
+ 字符流的过滤器
+   BufferedReader ----> readLine 一次读一行
+   BufferedWriter/PrintWriter ----> 写一行
+   
+3.对象的序列化，反序列化
+1)对象序列化，就是将Object转换成byte序列，反之叫对象的反序列化
+2)序列化流(ObjectOutputStream),是过滤流---writeObject
+  反序列化流(ObjectInputStream)---readObject
+3)序列化接口(Serializable)
+  对象必须实现序列化接口，才能进行序列化，否则将出现异常
+  这个接口，没有任何方法，只是一个标准
+4)transient关键字
+  private void writeObject(ObjectOutputStream s) 
+  	throws IOException
+  private void readObject(ObjectInputStream s) 
+  	throws IOException, ClassNotFoundException
+ 
+  分析ArrayList源码中序列化和反序列化的问题
   
   
   
