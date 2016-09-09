@@ -1,0 +1,12 @@
+手工编写Servlet：
+1.继承HttpServlet
+2.重写doGet()或者doPost()方法
+3.在web.xml中注册Servlet
+  <servlet>
+  	<servlet-name>HelloServlet</servlet-name>
+  	<servlet-class>servlet.HelloServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>HelloServlet</servlet-name>
+  	<url-pattern>/servlet/HelloServlet</url-pattern>
+  </servlet-mapping>
