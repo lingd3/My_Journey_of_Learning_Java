@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<package name="default" namespace="/" extends="struts-default">
+		
+		<default-action-ref name="index"></default-action-ref>
+		<action name="index">
+			<result>/error.jsp</result>
+		</action>
+	
+		<action name="helloworld_*" method="{1}" class="com.imooc.action.HelloWorldAction">
+			<result>/result.jsp</result>
+			<result name="add">/{1}.jsp</result>
+			<result name="update">/{1}.jsp</result>
+		</action>
+		
+		<action name="LoginAction" method="login" class="com.imooc.action.LoginAction">
+			<result>/success.jsp</result>
+			<result name="input">/login.jsp</result>
+		</action>
+	</package>
+</struts>
