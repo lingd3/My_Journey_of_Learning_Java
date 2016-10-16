@@ -1,0 +1,5 @@
+Hibernate开发的基本步骤：
+1.编写配置文档hibernate.crg.xml
+2.编写实体类
+3.生成对应实体类的映射文件并添加到配置文档中
+4.调用Hibernate API进行测试

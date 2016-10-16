@@ -1,0 +1,105 @@
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.sql.Blob;
+import java.util.Date;
+
+import org.hibernate.Hibernate;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.service.ServiceRegistry;
+import org.hibernate.service.ServiceRegistryBuilder;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+//测试类
+public class StudentsTest {
+	
+	private SessionFactory sessionFactory;
+	private Session session;
+	private Transaction transaction;
+	
+	@Before
+	public void init() {
+		//创建配置对象
+		Configuration config = new Configuration().configure();
+		//创建服务注册对象
+		ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(config.getProperties()).buildServiceRegistry();
+		//创建会话工厂对象
+		sessionFactory = config.buildSessionFactory(serviceRegistry);
+		//会话对象
+		session = sessionFactory.openSession();
+		//开启事务
+		transaction = session.beginTransaction();
+	}
+	
+	@After
+	public void destory() {
+		transaction.commit();//提交事务
+		session.close();//关闭会话
+		sessionFactory.close();//关闭会话工厂
+	}
+	
+	@Test
+	public void testSaveStudents() {
+		//生成学生对象
+		//Students s = new Students(1, "张三丰", "男", new Date(), "武当山");
+		Students s = new Students();
+		s.setSname("张三丰");
+		s.setGender("男");
+		s.setBirthday(new Date());
+		//s.setAddress("武当山");
+		Address address = new Address("000000", "1212313", "武当山");
+		s.setAddress(address);
+		session.save(s); //保存对象进入数据库
+	}
+	
+	@Test
+	public void testGetStudents() {
+		Students s = (Students) session.get(Students.class, 1);
+		System.out.println(s);
+	}
+	
+	@Test
+	public void testLoadStudents() {
+		Students s = (Students) session.load(Students.class, 1);
+		System.out.println(s);
+	}
+	
+	@Test
+	public void testUpdateStudents() {
+		Students s = (Students) session.get(Students.class, 1);
+		s.setGender("女");
+		session.update(s);
+	}
+	
+	@Test
+	public void testDeleteStudents() {
+		Students s = (Students) session.get(Students.class, 1);
+		session.delete(s);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
