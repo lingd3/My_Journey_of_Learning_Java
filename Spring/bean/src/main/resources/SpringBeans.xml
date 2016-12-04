@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="FileNameGenerator" class="com.dan.spring.bean.FilenameGenerator">
+        <property name="name">
+            <value>dan</value>
+        </property>
+        <property name="type">
+            <value>txt</value>
+        </property>
+    </bean>
+    <!-- 另一重配置方法 缩写方法-->
+    <!-- 
+    <bean id="FileNameGenerator" class="com.dan.spring.bean.FileNameGenerator">
+    	<property name="name" value="dan" />
+        <property name="type" value="txt" />
+    </bean>
+     -->
+</beans>
