@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="customerService" class="com.dan.spring.aop.advice.CustomerService">
+        <property name="name" value="Dan" />
+        <property name="url" value="http://dan.com" />
+    </bean>
+    
+    <!-- <bean id="hijackBeforeMethodBean" class="com.dan.spring.aop.advice.HijackBeforeMethod" />
+    <bean id="hijackAfterMethodBean" class="com.dan.spring.aop.advice.HijackAfterMethod" />
+    <bean id="hijackThrowExceptionBean" class="com.dan.spring.aop.advice.HijackThrowException" /> -->
+    <bean id="hijackAroundMethodBean" class="com.dan.spring.aop.advice.HijackAroundMethod" />
+
+    <bean id="customerServiceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="customerService" />
+        <property name="interceptorNames">
+            <list>
+                <!-- <value>hijackBeforeMethodBean</value> -->
+                <!-- <value>hijackAfterMethodBean</value> -->
+                <!-- <value>hijackThrowExceptionBean</value> -->
+                <value>customerAdvisor</value>
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="customerAdvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+        <property name="patterns">
+            <list>
+                <value>.*URL.*</value>
+            </list>
+        </property>
+        <property name="advice" ref="hijackAroundMethodBean" />
+    </bean>
+    
+    <!-- <bean id="customerPointcut" class="org.springframework.aop.support.NameMatchMethodPointcut">
+        <property name="mappedName" value="printName" />
+    </bean>
+
+    <bean id="customerAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+        <property name="pointcut" ref="customerPointcut" />
+        <property name="advice" ref="hijackAroundMethodBean" />
+    </bean> -->
+    
+    <!-- 上面两步合为一步
+    <bean id="customerAdvisor" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+        <property name="mappedName" value="printName" />
+        <property name="advice" ref="hijackAroundMethodBean" />
+	</bean> -->
+
+</beans>

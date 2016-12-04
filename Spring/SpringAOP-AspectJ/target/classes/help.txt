@@ -1,0 +1,8 @@
+一.Advice和Pointcut混在一起时，只需要两步，如下：
+1.创建一个Aspect类
+2.配置Spring配置文件
+
+二.将Advice和Pointcut分开，需要三步，如下：
+1.创建 Pointcut
+2.创建 Advice
+3.配置 Spring 的配置文件

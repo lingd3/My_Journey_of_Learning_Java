@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="customerService" class="com.dan.spring.aop.advice.CustomerService">
+        <property name="name" value="Dan" />
+        <property name="url" value="http://dan.com" />
+    </bean>
+    
+    <bean id="hijackAroundMethodBean" class="com.dan.spring.aop.advice.HijackAroundMethod" />
+
+	<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+        <property name="beanNames">
+            <list>
+                <value>*Service</value>
+            </list>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>customerAdvisor</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="customerAdvisor" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+		<property name="mappedName" value="printName"/>
+        <property name="advice" ref="hijackAroundMethodBean" />
+    </bean>
+    
+
+</beans>
