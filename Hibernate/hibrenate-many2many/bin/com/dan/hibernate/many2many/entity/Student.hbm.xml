@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<!-- 映射对应的 package -->
+<hibernate-mapping package="com.dan.hibernate.many2many.entity">
+
+	<!-- class和table对应 -->
+    <class name="Student" table="student_table">
+    	<id name="stu_id" column="stu_id">
+    		<generator class="native"></generator>
+    	</id>
+    	<property name="stu_name" column="stu_name"></property>
+    	
+    	<!-- cascade="save-update"：表示在保存和更新当前对象时，级联保存和更新附属对象
+    	inverse="true"：表示该对象不维护关联关系（一般只有一边来维护）
+    	table="sc_table"：表示中间表 -->
+    	<!-- table="sc_table"：表示中间表 -->
+        <set name="courses" cascade="save-update" inverse="true" table="sc_table">  
+            <!-- column 为中间表参照 student_table 的外键 -->
+            <key column="stu_id" not-null="true"></key>  
+            <!-- 多对多的关系映射-->
+            <many-to-many class="Course" column="cou_id"></many-to-many>        
+        </set> 
+    </class>
+    
+</hibernate-mapping>

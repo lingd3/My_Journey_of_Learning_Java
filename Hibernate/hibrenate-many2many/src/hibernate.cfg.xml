@@ -1,16 +1,16 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC
-        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 
 <hibernate-configuration>
-	<session-factory>
-	<!-- Database connection settings -->
-		
-	<!-- 表示使用mysql数据库驱动类 -->
-	<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-		
-	<!-- jdbc 的连接 url 和数据库（使用我们之前新建的 hibernate）-->
+    <session-factory>
+        <!-- Database connection settings -->
+
+        <!-- 表示使用 mysql 数据库驱动类 -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+
+        <!-- jdbc 的连接 url 和数据库（使用我们之前新建的 hibernate）-->
         <property name="connection.url">jdbc:mysql://localhost:3306/hibernate</property>
 
         <!-- 数据库用户名 -->
@@ -18,15 +18,12 @@
 
         <!-- 密码 -->
         <property name="connection.password"></property>
-        
-        <!-- JDBC connection pool (use the built-in) -->
-        <!-- <property name="connection.pool_size">1</property>-->
 
         <!-- 数据库使用的方言 -->
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 
         <!-- Echo all executed SQL to stdout -->
-        <!-- 设置 打印输出 sql 语句 为真 -->
+        <!-- 设置 控制台输出 sql 语句 为真 -->
         <property name="show_sql">true</property>
 
         <!-- 设置格式为 sql -->
@@ -36,8 +33,8 @@
         <property name="hbm2ddl.auto">update</property>         
 
         <!-- 映射文件 -->
-        <mapping resource="com/dan/hibernate/entity/User.hbm.xml"/>
-		
-	</session-factory>
-		
+        <mapping resource="com/dan/hibernate/many2many/entity/Course.hbm.xml"/>
+        <mapping resource="com/dan/hibernate/many2many/entity/Student.hbm.xml"/>
+
+    </session-factory>
 </hibernate-configuration>

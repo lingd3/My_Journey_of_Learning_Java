@@ -1,0 +1,6 @@
+执行HQL查询的步骤：
+1、获得Hibernate Session对象
+2、编写HQL语句
+3、调用Session的createQuery()方法创建查询对象
+4、如果HQL语句包含参数，则调用Query的setXxx方法为参数赋值
+5、调用Query对象的list等方法返回查询结果。

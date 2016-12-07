@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+ <!-- 映射对应的 package -->
+<hibernate-mapping package="com.dan.hibernate.many2one.entity">
+
+    <!-- 为了便于区分，使用了新的 table -->
+    <class name="User" table="user_table_2">
+        <id name="id" column="user_id">
+            <generator class="native"></generator>
+        </id>
+        <property name="username" column="user_username"></property>
+        <property name="password" column="user_password"></property>
+
+        <!-- 主要变化： 多对一的映射关系-->
+        <many-to-one name="group" column="group_id"></many-to-one>
+
+    </class>
+    
+</hibernate-mapping>
