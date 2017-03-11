@@ -32,11 +32,9 @@ public class Student implements Serializable {
 	}
 
 	public Student() {
-		super();
 	}
 
 	public Student(String sname, String sex) {
-		super();
 		this.sname = sname;
 		this.sex = sex;
 	}
