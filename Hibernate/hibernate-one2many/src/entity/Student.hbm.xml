@@ -12,6 +12,8 @@
     	<property name="sex">
     		<column name="sex"></column>
     	</property>
+    	<!-- 配置多对一关联关系 -->
+    	<many-to-one name="grade" class="entity.Grade" column="gid"></many-to-one>
     </class>
 </hibernate-mapping>
 

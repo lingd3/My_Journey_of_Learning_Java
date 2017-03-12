@@ -17,7 +17,7 @@
         <property name="connection.username">root</property>
 
         <!-- 密码 -->
-        <property name="connection.password">8815517</property>
+        <property name="connection.password"></property>
 
         <!-- 数据库使用的方言 -->
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>

@@ -6,6 +6,16 @@ public class Student implements Serializable {
 	private int sid;
 	private String sname;
 	private String sex;
+	// 在多方定义一个一方的引用
+	private Grade grade;
+
+	public Grade getGrade() {
+		return grade;
+	}
+
+	public void setGrade(Grade grade) {
+		this.grade = grade;
+	}
 
 	public int getSid() {
 		return sid;

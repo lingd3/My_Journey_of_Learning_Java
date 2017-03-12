@@ -12,8 +12,8 @@
     	<property name="gdesc">
     		<column name="gdesc"></column>
     	</property>
-    	<!-- 配置单向的一对多关联关系 -->
-    	<set name="students" table="student">
+    	<!-- 配置单向的一对多关联关系，设置inverse属性为true，由多方维护关联关系，当进行保存和更新时级联操作所关联的对象 -->
+    	<set name="students" table="student" inverse="true" cascade="save-update">
     		<!-- 指定关联的外键列 -->
     		<key column="gid"></key>
     		<one-to-many class="entity.Student" />
