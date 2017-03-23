@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bean.Message;
+import service.ListService;
 
 
 /**
@@ -27,28 +28,18 @@ public class ListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/micro_message?useUnicode=true&characterEncoding=UTF-8");
-			String sql = "select id, command, description, content from message";
-			PreparedStatement stmt = conn.prepareStatement(sql);
-			ResultSet rs = stmt.executeQuery();
-			List<Message> messageList = new ArrayList<>();
-			while (rs.next()) {
-				Message m = new Message();
-				m.setId(rs.getInt("id"));
-				m.setCommand(rs.getString("command"));
-				m.setDescription(rs.getString("description"));
-				m.setContent(rs.getString("content"));
-				messageList.add(m);
-			}
-			request.setAttribute("messageList", messageList);
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		System.out.println("in servlet");
+		//设置编码
+		request.setCharacterEncoding("UTF-8");
+		//接收页面的值
+		String command = request.getParameter("command");
+		String description = request.getParameter("description");
+		//向页面传值
+		request.setAttribute("command", command);
+		request.setAttribute("description", description);
+		ListService listService = new ListService();
+		//查询消息列表并传给页面
+		request.setAttribute("messageList", listService.queryMessageList(command, description));
+		//向页面跳转
 		request.getRequestDispatcher("/WEB-INF/jsp/back/list.jsp").forward(request, response);
 	}
 
@@ -60,3 +51,7 @@ public class ListServlet extends HttpServlet {
 	}
 
 }
+
+
+
+
