@@ -23,20 +23,66 @@ public class MessageDao {
 	public List<Message> queryMessageList(String command, String description) {
 		DBAccess dbAccess = new DBAccess();
 		SqlSession sqlSession = null;
+		List<Message> messageList = new ArrayList<>();
 		try {
 			sqlSession = dbAccess.getSqlSession();
+			Message message = new Message();
+			message.setCommand(command);
+			message.setDescription(description);
+			//通过sqlSession执行SQL语句
+			messageList = sqlSession.selectList("Message.queryMessageList", message);
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
 			if (sqlSession != null) sqlSession.close();
 		}
-		return null;
+		return messageList;
+	}
+	
+	/*
+	 * 单挑删除
+	 */
+	public void deleteOne(int id) {
+		DBAccess dbAccess = new DBAccess();
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = dbAccess.getSqlSession();
+			//通过sqlSession执行SQL语句
+			sqlSession.delete("Message.deleteOne", id);
+			sqlSession.commit();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (sqlSession != null) sqlSession.close();
+		}
+	}
+	
+	/*
+	 * 批量删除
+	 */
+	public void deleteBatch(List<Integer> ids) {
+		DBAccess dbAccess = new DBAccess();
+		SqlSession sqlSession = null;
+		try {
+			sqlSession = dbAccess.getSqlSession();
+			//通过sqlSession执行SQL语句
+			sqlSession.delete("Message.deleteBatch", ids);
+			sqlSession.commit();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (sqlSession != null) sqlSession.close();
+		}
 	}
 	
 	public static void main(String[] args) {
 		MessageDao messageDao = new MessageDao();
-		messageDao.queryMessageList("", "");
+		List<Message> messages = messageDao.queryMessageList("", "");
+		for (Message m : messages) {
+			System.out.println(m);
+		}
 	}
+	
 	
 	/*
 	 * 根据查询条件查询消息列表
@@ -45,7 +91,7 @@ public class MessageDao {
 //		List<Message> messageList = new ArrayList<>();
 //		try {
 //			Class.forName("com.mysql.jdbc.Driver");
-//			Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/micro_message?useUnicode=true&characterEncoding=UTF-8", "root", "");
+//			Connection conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/micro_message?useUnicode=true&characterEncoding=UTF-8", "root", "8815517");
 //			StringBuilder sql = new StringBuilder("select id, command, description, content from message where 1=1");
 //			List<String> paramList = new ArrayList<String>();
 //			if (command != null && !"".equals(command.trim())) {

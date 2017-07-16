@@ -39,17 +39,17 @@
       </transactionManager>
       <dataSource type="UNPOOLED">
         <property name="driver" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://127.0.0.1:3306/micro_message"/>
+        <property name="url" value="jdbc:mysql://127.0.0.1:3306/micro_message?useUnicode=true&amp;characterEncoding=utf-8"/>
         <property name="username" value="root"/>
-        <property name="password" value="8815517"/>
+        <property name="password" value="root"/>
       </dataSource>
     </environment>
   </environments>
 
-  <!-- 
+  
   <mappers>
-    <mapper resource="org/apache/ibatis/submitted/complex_property/User.xml"/>
+    <mapper resource="config/sqlxml/Message.xml"/>
   </mappers>
-  -->
+  
 
 </configuration>
