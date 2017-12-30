@@ -13,7 +13,7 @@ public class HelloController {
 	@Autowired
 	SchedualServiceHello schedualServiceHello;
 	
-	@RequestMapping(value = "/feign-hello", method = RequestMethod.GET)
+	@RequestMapping(value = "/hello", method = RequestMethod.GET)
 	public String sayHello() {
 		return schedualServiceHello.hello();
 	}
