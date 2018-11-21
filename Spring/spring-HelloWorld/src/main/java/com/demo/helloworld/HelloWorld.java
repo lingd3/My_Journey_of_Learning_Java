@@ -3,12 +3,20 @@ package com.demo.helloworld;
 public class HelloWorld {
 	
 	private String name;
+
+	private double num;
 	
-	public void setName(String n) {
-		name = n;
+	public HelloWorld(String name, double num) {
+		this.name = name;
+		this.num = num;
 	}
 	
+//	public HelloWorld(double num, String name) {
+//		this.name = name;
+//		this.num = num;
+//	}
+	
 	public void printHello() {
-		System.out.println("The first Spring :hello "+name);
+		System.out.println(name + " - " + num);
 	}
 }

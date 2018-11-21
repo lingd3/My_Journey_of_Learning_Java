@@ -10,11 +10,11 @@ public class App {
 	private static ApplicationContext context;
 	
     public static void main( String[] args ) {
-//    	context = new ClassPathXmlApplicationContext("SpringBeans.xml");
-//    	HelloWorld obj = (HelloWorld)context.getBean("helloBean");
-//    	obj.printHello();
-    	context = new ClassPathXmlApplicationContext("Spring-Output.xml");
-    	OutputHelper output = (OutputHelper)context.getBean("OutputHelper");
-    	output.generateOutput();
+    	context = new ClassPathXmlApplicationContext("SpringBeans.xml");
+    	HelloWorld obj = (HelloWorld)context.getBean("helloBean");
+    	obj.printHello();
+//    	context = new ClassPathXmlApplicationContext("Spring-Output.xml");
+//    	OutputHelper output = (OutputHelper)context.getBean("OutputHelper");
+//    	output.generateOutput();
     }
 }

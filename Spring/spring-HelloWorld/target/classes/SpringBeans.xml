@@ -5,7 +5,8 @@
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
     <bean id="helloBean" class="com.demo.helloworld.HelloWorld">
-        <property name="name" value="gordan" />
+        <constructor-arg value="0.23" index="1"/>
+        <constructor-arg value="gordan" index="0"/>
     </bean>
 
 </beans>
