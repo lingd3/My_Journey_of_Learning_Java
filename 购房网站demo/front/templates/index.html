@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>购房需求调查</title>
+	<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/style.css">
+	<script src="../static/js/jquery-3.2.1.min.js"></script>
+	<script src="../static/js/bootstrap.min.js"></script>
+	<script src="../static/js/script.js"></script>
+</head>
+<body>
+	<div id="all">
+		<div id="top">
+			✨购房需求问卷表✨
+		</div>
+
+		<div id="center">
+			<p class="title">填写表格</p>
+			<form>
+				<div>
+					<div class="name">姓名：</div><input type="text" id="username" maxlength="20">
+				</div>
+				<div>
+					<div class="name">手机号：</div><input type="text" id="phone" maxlength="11">
+				</div>
+
+				<div>
+					<div class="name">购房区域：</div>
+					<div class="place">
+						城市：<input type="text" id="city" maxlength="10">
+						&nbsp;区县：<input type="text" id="district" maxlength="10">
+					</div>
+					<div class="place">更详细地点：<input type="text" id="village" maxlength="10"></div>
+				</div>
+				<div>
+					<div class="name">临近地铁：</div>
+					<div class="place">
+						地铁线：<input type="text" id="lineNum" maxlength="5">
+						&nbsp;地铁站名：<input type="text" id="stationName" maxlength="5">
+					</div>
+				</div>
+				<div class="choose">
+					售价：
+					<input type="checkbox" name="price" value="50万以下"> 50万以下&nbsp;
+					<input type="checkbox" name="price" value="50-80万"> 50-80万&nbsp;
+					<input type="checkbox" name="price" value="80-100万"> 80-100万&nbsp;
+					<input type="checkbox" name="price" value="100-120万"> 100-120万&nbsp;
+					<input type="checkbox" name="price" value="120-150万"> 120-150万&nbsp;
+					<input type="checkbox" name="price" value="150-200万"> 150-200万&nbsp;
+					<input type="checkbox" name="price" value="200-300万"> 200-300万&nbsp;
+					<input type="checkbox" name="price" value="300-500万"> 300-500万&nbsp;
+					<input type="checkbox" name="price" value="500-1000万"> 500-1000万&nbsp;
+					<input type="checkbox" name="price" value="1000万以上"> 1000万以上&nbsp;
+				</div>
+				<div>
+					面积：
+					<input type="checkbox" name="squareMeter" value="40m²以下"> 40m²以下&nbsp;
+					<input type="checkbox" name="squareMeter" value="40-60m²"> 40-60m²&nbsp;
+					<input type="checkbox" name="squareMeter" value="60-80m²"> 60-80m²&nbsp;
+					<input type="checkbox" name="squareMeter" value="80-100m²"> 80-100m²&nbsp;
+					<input type="checkbox" name="squareMeter" value="100-120m²"> 100-120m²&nbsp;
+					<input type="checkbox" name="squareMeter" value="120-150m²"> 120-150m²&nbsp;
+					<input type="checkbox" name="squareMeter" value="150-200m²"> 150-200m²&nbsp;
+					<input type="checkbox" name="squareMeter" value="200-300m²"> 200-300m²&nbsp;
+					<input type="checkbox" name="squareMeter" value="300m²以上"> 300m²以上&nbsp;
+				</div>
+				<div>
+					房型：
+					<input type="checkbox" name="houseKind" value="一室"> 一室&nbsp;
+					<input type="checkbox" name="houseKind" value="二室"> 二室&nbsp;
+					<input type="checkbox" name="houseKind" value="三室"> 三室&nbsp;
+					<input type="checkbox" name="houseKind" value="四室"> 四室&nbsp;
+					<input type="checkbox" name="houseKind" value="五室"> 五室&nbsp;
+					<input type="checkbox" name="houseKind" value="五室以上"> 五室以上&nbsp;
+				</div>
+				<div>
+					用途：
+					<input type="checkbox" name="uasge" value="普通住宅"> 普通住宅&nbsp;
+					<input type="checkbox" name="uasge" value="商注两用"> 商注两用&nbsp;
+					<input type="checkbox" name="uasge" value="别墅"> 别墅&nbsp;
+					<input type="checkbox" name="uasge" value="四合院"> 四合院&nbsp;
+					<input type="checkbox" name="uasge" value="其他"> 其他&nbsp;
+				</div>
+				<div>
+					权属：
+					<input type="checkbox" name="ownerShip" value="商品房"> 商品房&nbsp;
+					<input type="checkbox" name="ownerShip" value="公房"> 公房&nbsp;
+					<input type="checkbox" name="ownerShip" value="经适房"> 经适房&nbsp;
+					<input type="checkbox" name="ownerShip" value="其他"> 其他&nbsp;
+				</div>
+				<div>
+					楼层：
+					<input type="checkbox" name="floor" value="低楼层"> 低楼层&nbsp;
+					<input type="checkbox" name="floor" value="中楼层"> 中楼层&nbsp;
+					<input type="checkbox" name="floor" value="高楼层"> 高楼层&nbsp;
+				</div>
+				<div>
+					朝向：
+					<input type="checkbox" name="direction" value="朝东"> 朝东&nbsp;
+					<input type="checkbox" name="direction" value="朝南"> 朝南&nbsp;
+					<input type="checkbox" name="direction" value="朝西"> 朝西&nbsp;
+					<input type="checkbox" name="direction" value="朝北"> 朝北&nbsp;
+					<input type="checkbox" name="direction" value="南北"> 南北&nbsp;
+				</div>
+				<div>
+					楼龄：
+					<input type="checkbox" name="age" value="5年以内"> 5年以内&nbsp;
+					<input type="checkbox" name="age" value="10年以内"> 10年以内&nbsp;
+					<input type="checkbox" name="age" value="15年以内"> 15年以内&nbsp;
+					<input type="checkbox" name="age" value="20年以内"> 20年以内&nbsp;
+					<input type="checkbox" name="age" value="20年以上"> 20年以上&nbsp;
+				</div>
+				<div>
+					电梯：
+					<input type="checkbox" name="elevator" value="有电梯"> 有电梯&nbsp;
+					<input type="checkbox" name="elevator" value="无电梯"> 无电梯&nbsp;
+				</div>
+				<div>
+					装修：
+					<input type="checkbox" name="decoration" value="精装修"> 精装修&nbsp;
+					<input type="checkbox" name="decoration" value="普通装修"> 普通装修&nbsp;
+					<input type="checkbox" name="decoration" value="毛坯房"> 毛坯房&nbsp;
+				</div>
+				<div>
+					更多需求：<input type="text" id="remark" maxlength="200" style="width:80%">
+				</div>
+				<div id="btn">
+					<input type="button" id="submit" value="提交问卷">
+					<input type="button" id="reset" value="重置">
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

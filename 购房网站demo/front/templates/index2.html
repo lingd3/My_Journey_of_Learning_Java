@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>购房需求详细</title>
+	<!-- <link rel="icon" href="../static/static/image/diamond.png" type="image/x-icon"/> -->
+	<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/style2.css">
+	<script src="../static/js/jquery-3.2.1.min.js"></script>
+	<script src="../static/js/bootstrap.min.js"></script>
+	<script src="../static/js/script2.js"></script>
+</head>
+<body>
+	<div id="all">
+		<div id="top">
+			✨管理界面✨
+		</div>
+		<div id="queryForm">
+			<div id="timeQuery">
+				按时间查询
+				<input type="text" id="startDate" maxlength="10" placeholder="格式: yyyy-mm-dd"> - 
+				<input type="text" id="endDate" maxlength="10" placeholder="格式: yyyy-mm-dd">	
+			</div>
+			<div id="keyWordQuery">
+				按关键字查询
+				<input type="text" id="description" maxlength="20" placeholder="如广州">
+			</div>
+			<div id="button">
+				<input type="button" id="query" value="搜索">
+				<input type="button" id="export" value="导出Excel">
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="mainContent"></div>
+	<div id="callBackPager"></div>
+
+</body>
+</html>
+

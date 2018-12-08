@@ -1,0 +1,164 @@
+.{
+	min-width: 900px;
+}
+
+body {
+	background-image: url("../image/bg.jpg");
+	background-size:100% 100%;
+}
+
+#all {
+	width: 90%;
+	margin: auto 5%;
+}
+
+#top {
+	color: rgb(75,162,204);
+	margin-top: 2%;
+	margin-bottom: 1%;
+	text-align: center;
+	font-size: 320%;
+}
+
+#top2 {
+    margin-top: 1%;
+    font-size: 36%;
+    float: right;
+    text-align: left;
+    color: black;
+}
+
+#left {
+	width: 52%;
+	float: left;
+	border-right: 2px solid rgb(75,162,204);
+}
+
+#left div, #right div {
+	padding-bottom: 1%;
+}
+
+#right {
+	width: 45%;
+	float: right;
+}
+
+#carat1, #carat2 {
+	width: 10%;
+	border: 1px solid gray;
+}
+
+#id {
+	width: 20%;
+	border: 1px solid gray;
+}
+
+#query, #reset {
+    margin-top: 10px;
+    border: 1 solid gray;
+    border-radius: 5px;
+    outline: none;
+}
+
+#total {
+	clear:both;
+}
+
+.num {
+	font-size: 120%;
+	color: black;
+}
+
+#currPage, .total {
+	color: rgb(75,162,204);
+}
+
+#page {
+	clear:both;
+}
+
+#bottom {
+	margin-top: 20px;
+}
+
+#mainContent {
+    padding-top: 2%;
+    clear: both;
+    text-align: center;
+    border-top: 5px solid rgb(75,162,204);
+    border-radius: 10px;
+}
+
+th {
+	text-align: center;
+}
+
+#callBackPager {
+	float: right;
+}
+
+#detail_center {
+	width: 60%;
+	margin-left: 20%;
+	margin-top: 2%;
+	border: 1px rgb(75,162,204) solid;
+}
+
+#detail_top, #detail_address, #detail_subway {
+	width: 100%;
+	float: left;
+	margin-top: 1%;
+	margin-left: 2%;
+}
+
+#detail_id, #detail_city, #detail_district {
+	width: 20%;
+	float: left;
+}
+
+#clear {
+	clear: both;
+}
+
+#detail_username, #detail_lineNum {
+	width: 30%;
+	float: left;
+}
+
+#detail_bottom div{
+	margin-top: 1%;
+	margin-left: 2%;
+}
+
+#detail_bottom {
+	margin-bottom: 2%;
+}
+
+#timeQuery, #keyWordQuery {
+	margin-top: 2%;
+}
+
+#button {
+	margin-bottom: 2%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
